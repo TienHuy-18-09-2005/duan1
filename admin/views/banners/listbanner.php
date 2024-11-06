@@ -58,8 +58,7 @@
                     <?php foreach ($listBanner as $key=>$banner): ?>
                   <tr>
                     <td><?= $key+1 ?></td>
-                    <td><?= $banner['tieuDeBanner'] ?></td>
-                    <td><?= $banner['moTa'] ?></td>
+                    <td><?= $banner['tieu_de'] ?></td>
                     <td>
                         <img src="<?= BASE_URL . $banner['link_san_pham'] ?>" style="height: 300px" width="600px" alt="" 
                         onerror="this.onerror=null; this.src='https://webadmin.beeart.vn/upload/image/20220629/6379211571097799404175786.jpg'">

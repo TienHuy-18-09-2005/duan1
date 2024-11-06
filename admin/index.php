@@ -90,5 +90,6 @@ match ($act) {
 
    // route banner
    'banner' => (new AdminBannerController)->danhSachBanner(),
+   'form-them-banner' => (new AdminBannerController)->addBanner(),
  
 };

@@ -6,7 +6,7 @@ class AdminBanner {
         $this->conn = connectDB();
     }
 
-    public function gettAllBanner() {
+    public function getAllBanner() {
         try {
             $sql = "SELECT * FROM banners";
 
@@ -21,46 +21,20 @@ class AdminBanner {
         }
     }
 
-    // public function addBanner($link_san_pham, $anh_banner) {
-    //     try {
-    //         $sql = "INSERT INTO banners (link_san_pham, anh_banner) VALUES (:link_san_pham, :anh_banner)";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //             ":link_san_pham" => $link_san_pham,
-    //             ":anh_banner" => $anh_banner
-    //         ]);
-    //         return true;
-    //     } catch (Exception $e) {
-    //         echo $e->getMessage();
-    //     }
-    // }
-
-    // public function deleteData($id) {
-    //     try{
-    //         $sql = "DELETE FROM banners WHERE :id = id";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute(["id"=>$id]);
-    //     } catch (Exception $e) {
-    //         echo "Lỗi" . $e->getMessage();
-    //     }
-    // }
-
-    //     public function getSanPham ($id) {
-         
-    //         try {
-    //             $sql = "SELECT * FROM banner WHERE id = :id";
-    //             $stmt = $this->conn->prepare($sql);
-    //             $stmt->execute([":id" => $id]);
-    //             return $stmt->fetch();
-    //         } catch (PDOException $e) {
-    //             // Ghi log lỗi thay vì hiển thị cho người dùng
-    //             error_log("Lỗi truy vấn: " . $e->getMessage());
-    //             echo "Đã xảy ra lỗi trong quá trình truy vấn.";
-    //         }
-            
-    // }
-    public function __destruct() {
-        $this->conn = null;
+    public function addBanner($anh_banner,$link_san_pham,$tieu_de){
+ 
+        try {
+            $sql = "INSERT INTO banners (anh_banner,link_san_pham,tieu_de) VALUES (:anh_banner,:link_san_pham,:tieu_de)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ":anh_banner" => $anh_banner,
+                ":link_san_pham" => $link_san_pham,
+                ":tieu_de" => $tieu_de       
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 }
 ?>
